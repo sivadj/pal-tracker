@@ -38,11 +38,7 @@ public class TimeEntryControllerTest {
         doReturn(expectedResult)
             .when(timeEntryRepository)
             .create(any(TimeEntry.class));
-
-
         ResponseEntity response = controller.create(timeEntryToCreate);
-
-
         verify(timeEntryRepository).create(timeEntryToCreate);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getBody()).isEqualTo(expectedResult);
