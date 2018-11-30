@@ -2,7 +2,6 @@ package io.pivotal.pal.tracker;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 
 import java.util.*;
 
@@ -47,9 +46,9 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry delete(long timeEntryId) {
-        TimeEntry re= repository.remove(timeEntryId);
-        return re;
+    public void delete(long timeEntryId) {
+        repository.remove(timeEntryId);
+
     }
 }
 
