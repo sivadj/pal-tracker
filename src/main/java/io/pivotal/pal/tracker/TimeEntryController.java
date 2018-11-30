@@ -56,8 +56,6 @@ public class TimeEntryController {
         TimeEntry timeEntry=timeEntryRepository.delete(timeEntryId);
         return new ResponseEntity(timeEntry, HttpStatus.NO_CONTENT);
 
-       // return new ResponseEntity(timeEntryRepository.delete(timeEntryId),HttpStatus.OK);
-
     }
 }
 
