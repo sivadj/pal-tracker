@@ -14,8 +14,8 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 @SpringBootApplication
 public class PalTrackerApplication {
 
-    /*@Value("${SPRING_DATASOURCE_URL}")
-    private String databaseUrl;*/
+    @Value("${SPRING_DATASOURCE_URL}")
+    private String databaseUrl;
     public static void main(String[] args) {
         SpringApplication.run(PalTrackerApplication.class, args);
     }
@@ -23,7 +23,7 @@ public class PalTrackerApplication {
     public TimeEntryRepository timeEntryRepository()
     {
         MysqlDataSource mysqlDataSource =  new MysqlDataSource();
-      //  mysqlDataSource.setURL(databaseUrl);
+        mysqlDataSource.setURL(databaseUrl);
 
         return new JdbcTimeEntryRepository(mysqlDataSource);
     }
